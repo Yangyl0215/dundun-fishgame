@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>小鱼碰碰乐</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="小鱼碰碰乐">
+      <canvas id="game" aria-label="点击游动的小鱼"></canvas>
+
+      <section class="hud" aria-label="游戏控制">
+        <div class="score-box" aria-live="polite">
+          <span class="score-label">抓到</span>
+          <strong id="score">0</strong>
+        </div>
+
+        <div class="actions">
+          <button id="pauseBtn" class="icon-btn" type="button" aria-label="暂停" title="暂停">
+            <span aria-hidden="true">Ⅱ</span>
+          </button>
+          <button id="restartBtn" class="icon-btn" type="button" aria-label="重新开始" title="重新开始">
+            <span aria-hidden="true">↻</span>
+          </button>
+          <button id="soundBtn" class="icon-btn" type="button" aria-label="关闭音效" title="关闭音效">
+            <span aria-hidden="true">♪</span>
+          </button>
+        </div>
+      </section>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
