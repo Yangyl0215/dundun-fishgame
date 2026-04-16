@@ -312,8 +312,15 @@ function showMessage(text) {
 function playPop() {
   if (!state.soundOn) return;
 
-  state.audioCtx ||= new (window.AudioContext || window.webkitAudioContext)();
-  const now = state.audioCtx.currentTime;
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) return;
+
+  state.audioCtx ||= new AudioContextClass();
+  if (state.audioCtx.state === "suspended") {
+    state.audioCtx.resume();
+  }
+
+  const now = state.audioCtx.currentTime + 0.01;
   const oscillator = state.audioCtx.createOscillator();
   const gain = state.audioCtx.createGain();
 
